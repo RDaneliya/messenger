@@ -38,13 +38,18 @@ module.exports = (server) => {
 };
 
 function showActiveUsers(socket, userList) {      //Приходится конвертить словарь в массив и строку
-  const userKeyMap = new Map();                   //А потом обратно, потому что JSON.stringify
+  const userKeyPicMap = new Map();                   //А потом обратно, потому что JSON.stringify
   userList.forEach(userEntry => {                 //Не обрабатывает словари и возвращает {}
     const username  = userEntry._doc.username;
     const publicKey = userEntry._doc.publicKey;
-    userKeyMap.set(username, publicKey);
+    const picUrl    = userEntry._doc.userPictureUrl;
+    const data = {
+      key: publicKey,
+      url: picUrl
+    }
+    userKeyPicMap.set(username, data);
   });
-  const mapString = JSON.stringify(Array.from(userKeyMap));
+  const mapString = JSON.stringify(Array.from(userKeyPicMap));
 
   socket.emit('names', mapString);
 }

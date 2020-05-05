@@ -16,9 +16,9 @@ socket.on('message', (data) => {
 });
 
 socket.on('names', userKeyMapString => {
-  userKeyMap  = new Map(JSON.parse(userKeyMapString));
-  const users = Array.from(userKeyMap.keys());
-  displayUsers(users);
+  userKeyMap = new Map(JSON.parse(userKeyMapString));
+
+  displayUsers(userKeyMap);
 
   socket.emit('load messages');
 });
@@ -29,7 +29,6 @@ messageForm.addEventListener('submit', () => {
   const key     = userKeyMap.get(destination);
 
   messageInput.value = '';
-  console.log(message);
   socket.emit('send message', username, message, destination, twoUsersRoomString);
 
   socket.on('update messages', (messages) => {
@@ -38,13 +37,22 @@ messageForm.addEventListener('submit', () => {
   return false;
 });
 
-function displayUsers(users) {
-
+function displayUsers(userKeyMap) {
+  const users             = Array.from(userKeyMap.keys());
   nickContainer.innerHTML = '';
   users.forEach(username => {
-    const item     = document.createElement('button');
+    const item = document.createElement('button');
+
+    const picture = document.createElement('img');
+    const url     = userKeyMap.get(username).url;
+    picture.setAttribute('src', url);
+    picture.setAttribute('height', '20');
+    picture.setAttribute('width', '20');
+
     item.className = 'btn btn-primary username-btn col-4';
     item.innerHTML = username;
+    item.appendChild(picture);
+
     nickContainer.append(item);
   });
 
@@ -85,7 +93,6 @@ function showMessages(arrayOfMessages, whereToShow) {
   arrayOfMessages.forEach(message => {
     const privateKey = JSON.parse(localStorage.getItem('private-key'));
     const li         = document.createElement('li');
-    console.log(message);
     li.innerHTML = message.addresser + ': ' + message.text;
     whereToShow.appendChild(li);
   });
