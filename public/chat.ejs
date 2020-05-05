@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Чат</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="javascripts/cryptico.min.js"></script>
+    <script defer src="socket.io/socket.io.js"></script>
+    <script defer src="javascripts/chat.js"></script>
+
+</head>
+
+<body>
+    <%- include('./layouts/header') -%>
+    <article class="container-lg d-flex flex-row justify-content-between">
+        <div class="nick-container d-flex flex-column">
+        </div>
+        <div class="flex flex-column justify-content-between chat-holder">
+            <div class="messages-holder">
+                <ul class="messages"></ul>
+            </div>
+            <form class="message-form " action="" onsubmit="">
+                <input class="message-input" autocomplete="off" autofocus placeholder="Печатать тут..." required>
+            </form>
+        </div>
+
+    </article>
+</body>
+</html>

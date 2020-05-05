@@ -1,0 +1,18 @@
+<script>
+
+  const urlMain     = document.URL.substring(0, document.URL.lastIndexOf('/'));
+  const urlRegister = document.URL.substring(0, document.URL.lastIndexOf('/')) + '/register';
+
+</script>
+<header class="container-lg d-flex justify-content-between">
+    <% if (username !== undefined && username !== null){ %>
+        <p class="username-text"><%=username%></p>
+    <% }else{ %>
+        <a href=""
+           onclick="event.preventDefault();
+           window.open(urlMain,'_self')">Главная</a>
+    <% } %>
+    <a href=""
+       onclick="event.preventDefault();
+       window.open(urlRegister,'_self')">Регистрация</a>
+</header>

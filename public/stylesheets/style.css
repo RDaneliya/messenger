@@ -1,0 +1,71 @@
+form {
+    margin-top: 20px;
+}
+
+header {
+    margin: 0 20px 0 20px;
+    background-color: #cbcbcb;
+}
+
+header > * {
+    margin: 10px 30px 10px 30px;
+}
+
+.login-form > input {
+    margin: 20px 0 20px 0;
+}
+
+
+.register-form > input {
+    margin: 20px 0 20px 0;
+}
+
+.messages > li {
+    list-style-type: none;
+}
+
+.message-form {
+
+    bottom: 15px;
+    width: 100%;
+    margin: 0 0 0 0;
+
+}
+
+.message-form > input {
+    width: 100%;
+}
+
+.chat-holder {
+    margin: 30px;
+    width: 50%;
+    min-height: 100%;
+    display: none;
+}
+
+.messages-holder {
+    border: solid 1px black;
+    height: 100%;
+}
+
+.form-holder {
+    width: 50%;
+}
+
+.nick-container {
+    width: 30%;
+    height: 100%;
+    margin: 30px 0 50px 20px;
+}
+
+.username {
+    background-color: gray;
+}
+
+.username > p {
+    color: white;
+}
+
+.username-btn {
+    margin: 20px 0 20px 0;
+}

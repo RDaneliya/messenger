@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <script defer src="./javascripts/register.js"></script>
+    <script src="./javascripts/cryptico.min.js"></script>
+</head>
+<body>
+    <%- include('./layouts/header')-%>
+    <article class="d-flex justify-content-center">
+        <form class="register-form col-4 container-lg justify-content-center" method="post" action="" onsubmit="">
+            <input class="login-input form-control" placeholder="Login" required>
+            <input class="password-input form-control" placeholder="Password" required>
+            <input class="password-input-confirmation form-control" placeholder="Password" required>
+            <div class="d-flex flex-row justify-content-center">
+                <button class="btn-register btn btn-primary">
+                    Зарегистрирооваться
+                </button>
+            </div>
+        </form>
+    </article>
+</body>
+</html>
